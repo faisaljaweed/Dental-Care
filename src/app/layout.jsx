@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
+//Fonts
 const sora = Sora({
   subsets: ["latin"],
   variable: "--font-display",
