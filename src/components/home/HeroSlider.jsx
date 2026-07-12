@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 /* Placeholder hero imagery — client will swap with brand shoots later. */
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80",
+    image: "/Images/home_hero/hero_1.jpeg",
     kicker: "AI & Automation for Dental Businesses",
     title: (
       <>
@@ -21,7 +21,7 @@ const slides = [
     sub: "We build AI receptionists, booking automation, and revenue-recovery systems for dental clinics, groups, DSOs, and labs — so every call is answered and every chair stays full.",
   },
   {
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1920&q=80",
+    image: "/Images/home_hero/hero_2.jpeg",
     kicker: "Built Exclusively for Dentistry",
     title: (
       <>
@@ -32,7 +32,7 @@ const slides = [
     sub: "Dental-trained voice AI that books straight into Dentrix, Eaglesoft, Open Dental & more — and hands real emergencies to real humans in seconds.",
   },
   {
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=80",
+    image: "/Images/home_hero/hero_3.jpeg",
     kicker: "Revenue Recovery, Measured",
     title: (
       <>
@@ -55,7 +55,7 @@ export default function HeroSlider() {
 
   const go = useCallback(
     (dir) => setIndex((i) => (i + dir + slides.length) % slides.length),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -72,13 +72,16 @@ export default function HeroSlider() {
           aria-hidden={i !== index}
           className={cn(
             "hero-slide absolute inset-0",
-            i === index ? "opacity-100 z-[1]" : "opacity-0 z-0"
+            i === index ? "opacity-100 z-[1]" : "opacity-0 z-0",
           )}
         >
           <img
             src={s.image}
             alt=""
-            className={cn("w-full h-full object-cover", i === index && "kenburns")}
+            className={cn(
+              "w-full h-full object-cover",
+              i === index && "kenburns",
+            )}
           />
           <div className="absolute inset-0 bg-hero-overlay" />
         </div>
@@ -88,7 +91,10 @@ export default function HeroSlider() {
       <Container className="relative z-10 pt-32 pb-24">
         <div className="max-w-2xl">
           <span className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur px-5 py-2 mb-7">
-            <span className="w-2 h-2 rounded-full bg-teal-light animate-pulse" aria-hidden="true" />
+            <span
+              className="w-2 h-2 rounded-full bg-teal-light animate-pulse"
+              aria-hidden="true"
+            />
             <span className="text-white/90 text-[13px] font-display font-semibold tracking-wide uppercase">
               {slides[index].kicker}
             </span>
@@ -103,7 +109,12 @@ export default function HeroSlider() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-14">
-            <Button as={Link} href="/contact" size="lg" rightIcon={<ArrowRight size={17} />}>
+            <Button
+              as={Link}
+              href="/contact"
+              size="lg"
+              rightIcon={<ArrowRight size={17} />}
+            >
               Book a Free AI Audit
             </Button>
             <Button as={Link} href="/portfolio" size="lg" variant="light">
@@ -115,7 +126,9 @@ export default function HeroSlider() {
           <div className="flex flex-wrap gap-x-10 gap-y-5 border-t border-white/15 pt-7">
             {quickStats.map((s) => (
               <div key={s.label}>
-                <span className="block font-display font-bold text-2xl text-white">{s.value}</span>
+                <span className="block font-display font-bold text-2xl text-white">
+                  {s.value}
+                </span>
                 <span className="block text-[13px] text-white/55 max-w-[180px] leading-snug mt-1">
                   {s.label}
                 </span>
@@ -142,7 +155,9 @@ export default function HeroSlider() {
               aria-label={`Go to slide ${i + 1}`}
               className={cn(
                 "h-1.5 rounded-full transition-all duration-300",
-                i === index ? "w-7 bg-brand-gradient" : "w-2.5 bg-white/35 hover:bg-white/60"
+                i === index
+                  ? "w-7 bg-brand-gradient"
+                  : "w-2.5 bg-white/35 hover:bg-white/60",
               )}
             />
           ))}
@@ -164,7 +179,9 @@ export default function HeroSlider() {
         <span className="flex items-center justify-center w-9 h-9 rounded-full bg-brand-gradient text-white shrink-0">
           <Phone size={15} />
         </span>
-        <span className="text-sm font-display font-semibold">{SITE.phoneDisplay}</span>
+        <span className="text-sm font-display font-semibold">
+          {SITE.phoneDisplay}
+        </span>
       </a>
     </section>
   );

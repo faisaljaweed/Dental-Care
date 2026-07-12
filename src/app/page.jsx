@@ -9,6 +9,7 @@ import PortfolioPreview from "@/components/home/PortfolioPreview";
 import Testimonials from "@/components/home/Testimonials";
 import BlogPreview from "@/components/home/BlogPreview";
 import CTABanner from "@/components/layout/CTABanner";
+import Roi from "@/components/home/Roi";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <TrustBar />
       <IntroSplit />
       <ServicesGrid />
+      <Roi />
       <StatsBand />
       <Process />
       <Industries />

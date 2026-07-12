@@ -22,7 +22,7 @@ export default function IntroSplit() {
             <div className="relative">
               <div className="rounded-[2rem] overflow-hidden shadow-lift">
                 <img
-                  src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1200&q=80"
+                  src="/Images/who_we_are.jpeg"
                   alt="Dentist at a modern practice"
                   className="w-full aspect-[4/3] object-cover"
                   loading="lazy"
@@ -30,7 +30,9 @@ export default function IntroSplit() {
               </div>
               {/* Floating stat card */}
               <div className="absolute -bottom-8 -right-4 sm:right-8 rounded-2xl bg-white shadow-lift border border-line px-7 py-5 float-y">
-                <span className="block font-display font-bold text-3xl text-gradient">98%</span>
+                <span className="block font-display font-bold text-3xl text-gradient">
+                  98%
+                </span>
                 <span className="block text-[13px] text-muted mt-0.5 max-w-[160px] leading-snug">
                   call answer rate our systems maintain, 24/7/365
                 </span>
@@ -58,12 +60,19 @@ export default function IntroSplit() {
             <ul className="space-y-3.5 mb-9">
               {points.map((p) => (
                 <li key={p} className="flex items-start gap-3">
-                  <CheckCircle2 size={19} className="text-teal shrink-0 mt-0.5" />
+                  <CheckCircle2
+                    size={19}
+                    className="text-teal shrink-0 mt-0.5"
+                  />
                   <span className="text-[15.5px] text-ink/85">{p}</span>
                 </li>
               ))}
             </ul>
-            <Button as={Link} href="/about" rightIcon={<ArrowRight size={16} />}>
+            <Button
+              as={Link}
+              href="/about"
+              rightIcon={<ArrowRight size={16} />}
+            >
               More About Us
             </Button>
           </Reveal>
