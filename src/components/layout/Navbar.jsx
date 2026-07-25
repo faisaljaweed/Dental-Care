@@ -5,24 +5,22 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, Phone, ArrowRight } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
-import { services } from "@/lib/data/services";
+import { products } from "@/lib/data/products";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services", dropdown: true },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "About Us", href: "/about" },
+  { label: "Platform", href: "/platform", dropdown: true },
+  { label: "Case Studies", href: "/portfolio" },
+  { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export function Logo({ light = false }) {
   return (
-    <Link href="/" className="flex items-center gap-2.5 shrink-0">
+    <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="Redix Dental — home">
       <span className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-brand-gradient shadow-glow">
-        <svg viewBox="0 0 24 24" className="w-5.5 h-5.5 w-[22px] h-[22px]" fill="none" aria-hidden="true">
+        <svg viewBox="0 0 24 24" className="w-[22px] h-[22px]" fill="none" aria-hidden="true">
           <path
             d="M12 3C8 3 5.5 5.6 5.5 9c0 2.1.8 3.4 1.3 5 .5 1.5.7 4.6 2 6.4.5.7 1.5.6 1.8-.3.4-1.3.5-3.6 1.4-3.6s1 2.3 1.4 3.6c.3.9 1.3 1 1.8.3 1.3-1.8 1.5-4.9 2-6.4.5-1.6 1.3-2.9 1.3-5C18.5 5.6 16 3 12 3z"
             fill="white"
@@ -39,7 +37,7 @@ export function Logo({ light = false }) {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [mobileServices, setMobileServices] = useState(false);
+  const [mobilePlatform, setMobilePlatform] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -51,8 +49,16 @@ export default function Navbar() {
 
   useEffect(() => {
     setOpen(false);
-    setMobileServices(false);
+    setMobilePlatform(false);
   }, [pathname]);
+
+  /* Lock body scroll while the mobile drawer is open. */
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
     <header
@@ -66,7 +72,7 @@ export default function Navbar() {
           <Logo />
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1" aria-label="Main">
             {navLinks.map((link) =>
               link.dropdown ? (
                 <div key={link.href} className="relative group">
@@ -74,43 +80,38 @@ export default function Navbar() {
                     href={link.href}
                     className={cn(
                       "flex items-center gap-1 px-4 py-2.5 text-[15px] font-medium rounded-full transition-colors",
-                      pathname.startsWith("/services") ? "text-teal" : "text-ink/75 hover:text-teal"
+                      pathname.startsWith("/platform") ? "text-teal" : "text-ink/75 hover:text-teal"
                     )}
                   >
                     {link.label}
                     <ChevronDown size={15} className="transition-transform duration-200 group-hover:rotate-180" />
                   </Link>
 
-                  {/* Dropdown */}
-                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-swift">
-                    <div className="w-[640px] rounded-2xl bg-white shadow-lift border border-line p-4 grid grid-cols-2 gap-1">
-                      {services.map((s) => {
-                        const Icon = s.icon;
-                        return (
+                  {/* Two products, given room to explain themselves */}
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 focus-within:opacity-100 focus-within:visible focus-within:translate-y-0 transition-all duration-200 ease-swift">
+                    <div className="w-[600px] rounded-2xl bg-white shadow-lift border border-line p-3">
+                      <div className="grid grid-cols-2 gap-2">
+                        {products.map((p) => (
                           <Link
-                            key={s.slug}
-                            href={`/services/${s.slug}`}
-                            className="flex items-start gap-3 rounded-xl px-4 py-3 hover:bg-mint transition-colors group/item"
+                            key={p.slug}
+                            href={`/platform/${p.slug}`}
+                            className="rounded-xl px-5 py-4 hover:bg-mint transition-colors"
                           >
-                            <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-mint text-teal shrink-0 group-hover/item:bg-white transition-colors">
-                              <Icon size={17} />
+                            <span className="data-label text-teal block mb-2">{p.kicker}</span>
+                            <span className="block font-display font-semibold text-[15px] text-ink leading-snug mb-1.5">
+                              {p.fullName ?? p.name}
                             </span>
-                            <span>
-                              <span className="block text-[14px] font-display font-semibold text-ink leading-snug">
-                                {s.name}
-                              </span>
-                              <span className="block text-xs text-muted mt-0.5 leading-snug line-clamp-1">
-                                {s.heroLine}
-                              </span>
+                            <span className="block text-[13px] text-muted leading-snug">
+                              {p.tagline}
                             </span>
                           </Link>
-                        );
-                      })}
+                        ))}
+                      </div>
                       <Link
-                        href="/services"
-                        className="col-span-2 flex items-center justify-center gap-2 rounded-xl py-3 mt-1 text-sm font-display font-semibold text-teal bg-mint/60 hover:bg-mint transition-colors"
+                        href="/platform"
+                        className="flex items-center justify-center gap-2 rounded-xl py-3 mt-2 text-sm font-display font-semibold text-teal bg-mint/60 hover:bg-mint transition-colors"
                       >
-                        View all services <ArrowRight size={14} />
+                        Compare both products <ArrowRight size={14} />
                       </Link>
                     </div>
                   </div>
@@ -140,8 +141,8 @@ export default function Navbar() {
               </span>
               {SITE.phoneDisplay}
             </a>
-            <Button as={Link} href="/contact" size="sm">
-              Book a Free Audit
+            <Button as={Link} href="/demo" size="sm">
+              Book a Demo
             </Button>
           </div>
 
@@ -149,7 +150,8 @@ export default function Navbar() {
           <button
             onClick={() => setOpen((o) => !o)}
             className="lg:hidden p-2 text-ink"
-            aria-label="Toggle navigation"
+            aria-label={open ? "Close navigation" : "Open navigation"}
+            aria-expanded={open}
           >
             {open ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -164,38 +166,44 @@ export default function Navbar() {
         )}
       >
         <Container>
-          <nav className="py-5 flex flex-col">
+          <nav className="py-5 flex flex-col" aria-label="Mobile">
             {navLinks.map((link) =>
               link.dropdown ? (
                 <div key={link.href}>
                   <button
-                    onClick={() => setMobileServices((s) => !s)}
+                    onClick={() => setMobilePlatform((s) => !s)}
                     className="w-full flex items-center justify-between py-3.5 text-[15px] font-medium text-ink"
+                    aria-expanded={mobilePlatform}
                   >
                     {link.label}
                     <ChevronDown
                       size={17}
-                      className={cn("transition-transform duration-200", mobileServices && "rotate-180")}
+                      className={cn("transition-transform duration-200", mobilePlatform && "rotate-180")}
                     />
                   </button>
                   <div
                     className={cn(
                       "overflow-hidden transition-all duration-300",
-                      mobileServices ? "max-h-[600px]" : "max-h-0"
+                      mobilePlatform ? "max-h-[420px]" : "max-h-0"
                     )}
                   >
-                    <div className="pb-3 pl-3 flex flex-col">
-                      {services.map((s) => (
+                    <div className="pb-3 pl-1 flex flex-col gap-2">
+                      {products.map((p) => (
                         <Link
-                          key={s.slug}
-                          href={`/services/${s.slug}`}
-                          className="py-2.5 text-sm text-muted hover:text-teal transition-colors"
+                          key={p.slug}
+                          href={`/platform/${p.slug}`}
+                          className="rounded-xl bg-ice px-4 py-3.5"
                         >
-                          {s.name}
+                          <span className="block font-display font-semibold text-[14.5px] text-ink leading-snug">
+                            {p.fullName ?? p.name}
+                          </span>
+                          <span className="block text-[13px] text-muted mt-1 leading-snug">
+                            {p.tagline}
+                          </span>
                         </Link>
                       ))}
-                      <Link href="/services" className="py-2.5 text-sm font-semibold text-teal">
-                        View all services →
+                      <Link href="/platform" className="py-2 text-sm font-semibold text-teal">
+                        Compare both products →
                       </Link>
                     </div>
                   </div>
@@ -204,14 +212,21 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="py-3.5 text-[15px] font-medium text-ink border-b border-line/60 last:border-0"
+                  className="py-3.5 text-[15px] font-medium text-ink border-b border-line/60"
                 >
                   {link.label}
                 </Link>
               )
             )}
-            <Button as={Link} href="/contact" size="md" className="mt-5 w-full justify-center">
-              Book a Free Audit
+            <a
+              href={SITE.phoneHref}
+              className="flex items-center gap-2.5 py-3.5 text-[15px] font-medium text-ink"
+            >
+              <Phone size={15} className="text-teal" />
+              {SITE.phoneDisplay}
+            </a>
+            <Button as={Link} href="/demo" size="md" className="mt-4 w-full justify-center">
+              Book a Demo
             </Button>
           </nav>
         </Container>

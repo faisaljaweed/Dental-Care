@@ -2,12 +2,12 @@ import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import StatCounter from "@/components/ui/StatCounter";
 
-/* Industry-benchmark leaks — the "why we exist" numbers. */
+/* The cost of a front desk that can only work business hours. */
 const stats = [
-  { value: 38, suffix: "%", label: "of inbound calls the average practice misses", note: "each new-patient call worth $850+" },
-  { value: 20, suffix: "%", label: "average no-show rate without smart systems", note: "top performers run 1–5%" },
-  { value: 150, prefix: "$", suffix: "K", label: "lost annually to missed calls alone", note: "at a typical single location" },
-  { value: 66, suffix: "¢", label: "of every diagnosed dollar never scheduled", note: "unworked treatment plans" },
+  { value: 38, suffix: "%", label: "of calls go unanswered during opening hours", note: "front desks are already doing five jobs" },
+  { value: 62, suffix: "%", label: "of patients try to book outside those hours", note: "when nobody is there to pick up" },
+  { value: 20, suffix: "%", label: "average no-show rate without automated follow-up", note: "top practices run 1–5%" },
+  { value: 150, prefix: "$", suffix: "K", label: "lost per location each year to missed calls", note: "before no-shows and denials" },
 ];
 
 export default function StatsBand() {
@@ -17,12 +17,12 @@ export default function StatsBand() {
         <Reveal>
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="inline-flex items-center gap-2 font-display font-semibold text-[13px] uppercase tracking-[0.16em] text-teal-light mb-4">
-              The Gaps We Close
+              Why practices call us
             </span>
             <h2 className="text-3xl sm:text-4xl font-semibold text-white">
-              Dental businesses don&apos;t have a demand problem.
+              Dental practices don&apos;t have a demand problem.
               <br className="hidden sm:block" />
-              <span className="text-white/60">They have a leak problem.</span>
+              <span className="text-white/60">They have a coverage problem.</span>
             </h2>
           </div>
         </Reveal>
@@ -46,7 +46,7 @@ export default function StatsBand() {
 
         <Reveal delay={200}>
           <p className="text-center text-white/35 text-xs mt-8">
-            Sources: industry call-tracking benchmarks, ADA outlook surveys, and published dental RCM studies.
+            Sources: industry call-tracking benchmarks, ADA practice surveys, and published dental RCM studies.
           </p>
         </Reveal>
       </Container>

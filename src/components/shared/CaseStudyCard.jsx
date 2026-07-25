@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 export default function CaseStudyCard({ study, featured = false }) {
@@ -8,11 +9,12 @@ export default function CaseStudyCard({ study, featured = false }) {
       className="group rounded-[1.4rem] overflow-hidden bg-white border border-line shadow-soft hover:shadow-lift transition-all duration-300 ease-swift flex flex-col"
     >
       <div className="relative overflow-hidden aspect-[16/10]">
-        <img
+        <Image
           src={study.image}
-          alt={study.client}
-          loading="lazy"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-swift"
+          alt={`${study.client} — ${study.headline}`}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          className="object-cover group-hover:scale-105 transition-transform duration-500 ease-swift"
         />
         <span className="absolute top-4 left-4 rounded-full bg-white/95 backdrop-blur px-4 py-1.5 text-xs font-display font-semibold text-teal">
           {study.tag}

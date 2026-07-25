@@ -23,7 +23,7 @@ export default function PrivacyPage() {
         <h2>How we use it</h2>
         <p>
           To respond to your inquiry (within one business hour, as promised),
-          to run a walkthrough if you book one, and to operate the service if
+          to run the demo if you book one, and to operate the service if
           you become a customer. No newsletter, no drip sequence, no sharing
           with advertisers.
         </p>

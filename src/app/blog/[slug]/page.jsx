@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ChevronRight, Clock, ArrowRight } from "lucide-react";
 import Container from "@/components/ui/Container";
@@ -54,8 +55,15 @@ export default function BlogPostPage({ params }) {
       {/* Hero image + body */}
       <section className="bg-white pb-20">
         <Container size="sm">
-          <div className="-mt-40 relative z-10 rounded-[1.6rem] overflow-hidden shadow-lift mb-14">
-            <img src={post.image} alt="" className="w-full aspect-[16/8] object-cover" />
+          <div className="-mt-40 relative z-10 rounded-[1.6rem] overflow-hidden shadow-lift mb-14 aspect-[16/8]">
+            <Image
+              src={post.image}
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              priority
+              className="object-cover"
+            />
           </div>
 
           <article className="max-w-none">
@@ -81,7 +89,7 @@ export default function BlogPostPage({ params }) {
                 The free Redix audit maps your missed calls, no-show pattern, and dormant
                 patient base — and shows exactly what automation would recover.
               </p>
-              <Button as={Link} href="/contact" rightIcon={<ArrowRight size={15} />}>
+              <Button as={Link} href="/demo" rightIcon={<ArrowRight size={15} />}>
                 Book a Free Audit
               </Button>
             </div>

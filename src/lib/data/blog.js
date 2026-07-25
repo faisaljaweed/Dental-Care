@@ -1,78 +1,142 @@
 /**
  * Blog content — grounded in the same industry research used across the site.
+ * Every post ties back to one of the two products without reading as an advert.
  * Body is an array of { h?, p } blocks rendered on the detail page.
  */
 export const posts = [
   {
     slug: "why-dental-practices-miss-a-third-of-calls",
-    title: "Why 1 in 3 Calls to Your Practice Goes Unanswered — and What It Actually Costs",
+    title:
+      "Why 1 in 3 Calls to Your Practice Goes Unanswered — and What It Costs",
     excerpt:
-      "Industry call-tracking data shows 32–38% of calls to dental offices ring out during business hours. Here's where those callers go, what they're worth, and how to catch them.",
+      "Call-tracking data puts the miss rate at 32–38% during opening hours. Here's where those callers go, what they're worth, and why hiring doesn't fix it.",
     date: "June 24, 2026",
     readTime: "6 min read",
     category: "Front Office",
-    image:
-      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1600&q=80",
+    image: "/Images/dental_operations_01.jpeg",
     body: [
-      { p: "Walk past any dental front desk at 9:15 on a Monday morning and you'll see the problem in real time: one coordinator checking in a patient, another verifying insurance on hold with a carrier, and a phone ringing that neither of them can physically reach. Call-tracking studies across the industry put the miss rate at 32–38% of inbound calls during business hours — at some locations, far higher." },
-      { h: "Where missed callers actually go", p: "The uncomfortable data point: only about 14% of new patients leave a voicemail when nobody answers. The rest hang up — and roughly two-thirds of them call the next practice on their list within minutes. A missed call isn't a delayed conversation; for most new patients, it's a finished one." },
-      { h: "The math practices avoid doing", p: "A missed new-patient call carries an average of $850 in first-year revenue and several thousand dollars in lifetime value. At a typical volume of a few hundred missed calls a month — even if only a fraction were new patients — the annual leak lands in six figures for many single-location practices. That's not a marketing problem. Every one of those callers had already chosen you." },
-      { h: "Why hiring doesn't fix it", p: "The instinct is to add front-desk staff, but the economics rarely work: call volume spikes in bursts (Monday mornings, lunch hours, post-5 PM) that no static staffing plan can cover, and the majority of after-hours demand happens when nobody is scheduled at all. You'd be hiring for the busiest 90 minutes of the day and the hours the office is closed." },
-      { h: "What actually closes the gap", p: "The practices solving this are layering AI call coverage over their existing team: instant answering for overflow and after-hours, direct booking into the PMS, and automatic text-back for any call that still slips through. The front desk keeps the human work — the patients standing in front of them — while the system catches everything the humans physically can't." },
+      {
+        p: "Walk past any dental front desk at 9:15 on a Monday and you'll see the problem in real time: one coordinator checking in a patient, another on hold with a carrier, and a phone ringing that neither can physically reach. Call-tracking studies across the industry put the miss rate at 32–38% of inbound calls during opening hours — at some locations, considerably higher.",
+      },
+      {
+        h: "Where missed callers actually go",
+        p: "Only about 14% of new patients leave a voicemail when nobody answers. The rest hang up, and roughly two-thirds call the next practice on their list within minutes. A missed call isn't a delayed conversation. For most new patients, it's a finished one.",
+      },
+      {
+        h: "The maths practices avoid doing",
+        p: "A missed new-patient call carries an average of $850 in first-year revenue and several thousand in lifetime value. At a few hundred missed calls a month — even if only a fraction are new patients — the annual leak lands in six figures for many single locations. That isn't a marketing problem. Every one of those callers had already chosen you.",
+      },
+      {
+        h: "Why hiring doesn't close it",
+        p: "The instinct is to add front-desk staff, but the economics rarely work. Call volume arrives in bursts — Monday mornings, lunch hours, immediately after 5 PM — that no static rota covers, and a large share of demand happens when the office is shut entirely. You'd be hiring for the busiest ninety minutes of the day and for hours nobody is scheduled.",
+      },
+      {
+        h: "What actually closes it",
+        p: "The practices solving this layer automated call coverage over their existing team: instant answering for overflow and after-hours, direct booking into the PMS, and an automatic text-back for anything that still slips through. The front desk keeps the human work — the patients standing in front of them — while the system catches what humans physically can't.",
+      },
     ],
   },
   {
     slug: "true-cost-of-dental-no-shows",
-    title: "The True Cost of No-Shows — and Why Reminder Apps Alone Don't Fix Them",
+    title: "What a No-Show Actually Costs — and Why Reminders Alone Don't Work",
     excerpt:
-      "Average practices run 15–20% no-show rates while top performers sit at 1–5%. The difference isn't the reminder app — it's the system around it.",
+      "The average practice runs a 15–20% no-show rate while top performers sit at 1–5%. The gap isn't patient quality. It's what happens after the reminder is sent.",
     date: "June 10, 2026",
     readTime: "7 min read",
-    category: "Operations",
-    image:
-      "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=1600&q=80",
+    category: "Scheduling",
+    image: "/Images/dental_operations_02.jpeg",
     body: [
-      { p: "A single no-show per day costs a practice between $20,000 and $70,000 a year depending on average production — and the average practice runs a 15–20% no-show rate. Meanwhile, top-performing practices operate at 1–5%. Same patients, same economy, wildly different outcomes. The gap is systems." },
-      { h: "What the data says works", p: "A study covering 1.6 million appointments across 64 dental practices found automated reminders reduced no-shows by roughly 23% compared to manual methods, with text reminders the single most effective channel. So yes — reminders work. But if reminders alone were the answer, every practice with a reminder app would be at 5%. Most aren't." },
-      { h: "The three failures reminder apps don't solve", p: "First, one-size-fits-all sequences: a routine hygiene recall and a high-risk, twice-rescheduled new patient get the same two texts. Second, dead-end confirmations: a patient replies 'can't make it' and the thread just… ends, when it should instantly become a reschedule conversation. Third — and biggest — the empty slot itself: even a prevented no-show is only half the win if late cancellations still leave chairs empty." },
-      { h: "Backfill is where the money is", p: "The highest-ROI mechanism in appointment management is the automated waitlist: when a slot opens, matching patients get offered it within minutes, no coordinator required. A filled cancellation is pure recovered production — and it's the piece almost no practice has automated." },
-      { h: "The system, not the app", p: "Risk-based reminder sequences, two-way confirmations that reschedule on the spot, waitlist backfill for what still falls through, and reporting that shows recovered production monthly. That's the difference between owning a reminder app and running a no-show system." },
+      {
+        p: "A single no-show a day costs a typical practice somewhere between $20,000 and $70,000 a year, depending on production per chair. Across the industry the average no-show rate sits between 15% and 20%, while the best-run practices hold 1–5%. The difference is almost never the patient base.",
+      },
+      {
+        h: "One-way reminders are a notification, not a system",
+        p: "Most practices already send reminders. The problem is that a one-way text tells a patient about an appointment they can't do anything about. If they can't make Thursday, their options are to phone during working hours or to simply not turn up — and the second is easier. The reminder did its job and the chair still sat empty.",
+      },
+      {
+        h: "Two-way changes the outcome, not just the message",
+        p: "When a patient can reply 'can't make it' and immediately be offered three alternatives, a no-show becomes a reschedule. Same patient, same production, different slot. That single change accounts for most of the improvement practices see, before any clever risk modelling gets involved.",
+      },
+      {
+        h: "The cancelled slot is the second half of the problem",
+        p: "A reschedule leaves a hole in Thursday. Filling it manually means a coordinator dropping what they're doing to call down a waitlist, which is why it usually doesn't happen. Automated backfill offers the opening to matching patients within minutes — and because it runs without anyone's attention, it runs every time.",
+      },
+      {
+        h: "What to measure",
+        p: "Track no-show rate by provider, by appointment type and by day of week rather than as one practice-wide number. The pattern is usually concentrated: a particular hygiene column, a particular time slot, a particular cohort of patients. Knowing which one tells you whether you have a reminder problem, a scheduling problem or a patient-communication problem.",
+      },
+    ],
+  },
+  {
+    slug: "questions-to-ask-an-ai-receptionist-vendor",
+    title:
+      "Nine Questions to Ask Before You Put an AI Receptionist on Your Website",
+    excerpt:
+      "Most dental chatbots are a contact form with a personality. These are the questions that separate the ones that book appointments from the ones that collect email addresses.",
+    date: "May 28, 2026",
+    readTime: "8 min read",
+    category: "AI Receptionist",
+    image: "/Images/dental_operations_03.jpeg",
+    body: [
+      {
+        p: "The category has filled up quickly, and most of what's marketed as an AI dental receptionist is a scripted widget that captures a name and promises someone will be in touch. That's a contact form with a typing animation. Here's how to tell the difference on a demo call.",
+      },
+      {
+        h: "What material is it trained on?",
+        p: "Ask specifically whether it answers from your treatment list, your fee ranges, your insurance panel and your policies — or from general dental knowledge. A receptionist who can't tell a patient what you charge for a crown, or whether you take their plan, cannot finish the conversation.",
+      },
+      {
+        h: "What happens when it doesn't know?",
+        p: "This is the most important question and the one vendors dislike. A well-built assistant says it doesn't know and offers a consultation or a callback. A badly built one guesses, and you find out when a patient arrives expecting a price you never quoted. Ask to see the refusal behaviour live.",
+      },
+      {
+        h: "Does it book, or does it collect?",
+        p: "Booking means checking live availability in your practice management system and writing the appointment. Collecting means taking details for someone to follow up on later. Only one of these works at 11 PM, which is when a large share of enquiries arrive.",
+      },
+      {
+        h: "Who can change an answer, and how fast?",
+        p: "Fees change, providers leave, a plan goes out of network. If correcting an answer means a support ticket and a two-week wait, the assistant will drift out of date within a quarter. Your office manager should be able to fix an answer in plain language and see it take effect immediately.",
+      },
+      {
+        h: "What about the clinical line?",
+        p: "Ask what it will refuse to do. Diagnosing over chat, advising on symptoms, guaranteeing outcomes and quoting outside approved ranges should all be explicitly out of scope, routed to a booked visit instead. A vendor who hasn't thought about this hasn't worked in healthcare.",
+      },
+      {
+        h: "And the paperwork",
+        p: "A signed BAA before onboarding, encryption in transit and at rest, access logging, and a clear answer on where conversations are stored and for how long. If the BAA is an enterprise-tier upgrade rather than step one, that tells you how the vendor thinks about patient data.",
+      },
     ],
   },
   {
     slug: "dental-claim-denials-automation",
-    title: "20% of Dental Claims Are Denied on First Submission. Most of It Is Preventable.",
+    title:
+      "Where Dental Claim Denials Actually Start — and How Far Upstream to Fix Them",
     excerpt:
-      "Verification errors cause 42% of denials, and reworking a claim costs 3–5× doing it right the first time. Here's the automation playbook for dental RCM.",
-    date: "May 28, 2026",
+      "One in five dental claims is denied first time round, and 42% of those denials trace back to something that went wrong before the patient sat down.",
+    date: "May 12, 2026",
     readTime: "8 min read",
     category: "Revenue Cycle",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80",
+    image: "/Images/dental_operations_04.jpeg",
     body: [
-      { p: "Dentists consistently rank insurance as their number-one operational headache — ahead of staffing and overhead. The numbers explain why: roughly 20% of dental claims are denied on first submission, denials cost the average practice $50,000–$120,000 a year in lost or delayed revenue, and front desks burn 10–15 hours a week on rework and appeals." },
-      { h: "The root cause hides upstream", p: "About 42% of denials trace back to eligibility and verification errors — coverage that lapsed, frequency limits already used, maximums exhausted. In other words, nearly half the denial problem is decided before the patient ever sits in the chair, during a manual verification process that takes a coordinator 8–10 minutes of hold time per patient. In a 3-chair practice, that's 2–3 hours of phone time every day." },
-      { h: "What automation changes", p: "Automated eligibility verification runs every patient ahead of the visit — coverage, frequencies, history, maximums — and attaches the breakdown to the chart in seconds. Published comparisons show practices moving from an 11.8% denial rate with manual verification to 3.2% with automation: roughly 73% fewer denials, before anyone touches a claim." },
-      { h: "Scrub before you submit", p: "The second layer is AI claim-scrubbing: catching missing attachments, coding mismatches, and payer-specific quirks before submission instead of in a rejection letter three weeks later. Reworking a denied claim costs 3–5× more than submitting it clean — prevention isn't just faster, it's structurally cheaper." },
-      { h: "Where to start", p: "Don't boil the RCM ocean. Automate eligibility first (biggest denial driver, biggest time sink), add claim-scrubbing second, then denial-tracking dashboards third. Practices that sequence it this way typically see collections speed up within the first billing cycle — and get their front desk's mornings back immediately." },
-    ],
-  },
-  {
-    slug: "dso-centralization-playbook",
-    title: "The DSO Centralization Playbook: Why Rollouts Fail and How to Run One That Doesn't",
-    excerpt:
-      "Centralizing patient access across acquired practices fails on change management, not technology. A phased playbook from the operators who've done it.",
-    date: "May 12, 2026",
-    readTime: "9 min read",
-    category: "DSO & Groups",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80",
-    body: [
-      { p: "Every growing DSO hits the same wall: a portfolio of acquired practices, each answering phones, booking, and billing its own way — and a leadership team flying blind between month-end reports. The obvious answer is centralization. The uncomfortable truth is that most centralization projects underdeliver, and almost never because the software was wrong." },
-      { h: "Why rollouts actually fail", p: "Three patterns show up in nearly every failed rollout. Location managers who built their own processes over years resist systems that erase their autonomy. Front-desk turnover of 30–40% a year means training evaporates as fast as it's delivered. And rollouts framed as replacement — 'the new system will handle calls now' — turn every front desk into an opponent on day one." },
-      { h: "Lead with relief, not replacement", p: "The single biggest lever is positioning: deploy AI call handling as overflow and after-hours support first. When the system catches the calls staff physically couldn't get to — instead of taking the calls they could — front desks become the rollout's advocates. In our experience, offices start requesting expanded coverage within weeks. That request is the green light for deeper standardization." },
-      { h: "Phase in waves, benchmark in daylight", p: "Roll out in waves of three to five locations, with office managers co-designing scripts and escalation rules for their own offices. Stand up the group dashboard early — answer rates, booking conversion, no-shows, recovered revenue per location — and share it openly. Per-location benchmarking does the enforcement a memo never could: nobody wants to be the office explaining the red row." },
-      { h: "What good looks like", p: "A mature setup runs one patient-access playbook across every location — with deliberate local exceptions, not accidental ones — on top of whatever mix of PMS platforms the acquisitions brought. Leadership sees yesterday's numbers today. And when the next acquisition closes, patient access is standardized in weeks, because the playbook already exists." },
+      {
+        p: "Roughly 20% of dental claims are denied on first submission. The instinct is to treat this as a billing problem and to put effort into resubmission — but around 42% of denials trace back to verification, which happens days earlier and in a different part of the practice entirely.",
+      },
+      {
+        h: "The error is usually upstream of billing",
+        p: "Coverage that lapsed, a frequency limitation already used, a maximum already met, a plan the patient changed at open enrolment and didn't mention. None of these are billing mistakes. They're information the practice didn't have when the appointment was booked, and by the time the claim is rejected the treatment has already been delivered.",
+      },
+      {
+        h: "Why manual verification loses",
+        p: "A coordinator in a three-chair practice spends two to three hours a day on eligibility checks — hold music, portals, and carrier phone trees. On a busy day, verification is the task that gets skipped, and it gets skipped for tomorrow's patients rather than today's, which is precisely the wrong direction.",
+      },
+      {
+        h: "Verify before the visit, scrub before submission",
+        p: "Two changes account for most of the improvement. First, verify every appointment automatically before the patient arrives, with the breakdown attached to the chart so nobody is quoting coverage from memory. Second, check claims for the common error patterns before they go out rather than discovering them in the aging report weeks later.",
+      },
+      {
+        h: "What it's worth",
+        p: "Practices that move verification upstream typically report substantially fewer denials and ten to fifteen hours of weekly rework returned to the front desk. The second number tends to matter more day to day: that time goes back to patients standing at the counter, which is the job the practice actually hired for.",
+      },
     ],
   },
 ];

@@ -25,6 +25,8 @@ h1, h2, h3, h4 {
   text-wrap: balance;
 }
 
+p { text-wrap: pretty; }
+
 ::selection {
   background: rgba(13, 148, 136, 0.22);
 }
@@ -48,6 +50,14 @@ h1, h2, h3, h4 {
   -webkit-text-fill-color: transparent;
 }
 
+/* Data / telemetry micro-label — used for metrics, timestamps, console chrome */
+.data-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 /* ── Scroll reveal ── */
 .reveal {
   opacity: 0;
@@ -60,26 +70,59 @@ h1, h2, h3, h4 {
   transform: none;
 }
 
-/* ── Hero slider ── */
-.hero-slide {
-  transition: opacity 1.2s ease;
+/* ── Live status pulse (AI is answering) ── */
+@keyframes livePulse {
+  0%   { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
+  70%  { box-shadow: 0 0 0 9px rgba(52, 211, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+.live-dot {
+  animation: livePulse 2.2s ease-out infinite;
 }
 
-@keyframes kenburns {
-  from { transform: scale(1); }
-  to { transform: scale(1.08); }
+/* ── Chat: message entrance + typing indicator ── */
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
 }
-.kenburns {
-  animation: kenburns 9s ease-out forwards;
+.msg-in {
+  animation: msgIn 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 
-/* ── Logo / integration marquee ── */
+@keyframes typingDot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.35; }
+  30%           { transform: translateY(-4px); opacity: 1; }
+}
+.typing-dot {
+  animation: typingDot 1.2s ease-in-out infinite;
+}
+
+/* ── Console: sweeping scan line on dashboard mockups ── */
+@keyframes scanY {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  35%  { opacity: 1; }
+  100% { transform: translateY(900%); opacity: 0; }
+}
+.scan-line {
+  animation: scanY 5.5s linear infinite;
+}
+
+/* ── Automation flow: signal travelling along a path ── */
+@keyframes dashFlow {
+  to { stroke-dashoffset: -60; }
+}
+.flow-path {
+  stroke-dasharray: 5 9;
+  animation: dashFlow 1.6s linear infinite;
+}
+
+/* ── Integration marquee ── */
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 .marquee-track {
-  animation: marquee 36s linear infinite;
+  animation: marquee 40s linear infinite;
 }
 .marquee:hover .marquee-track {
   animation-play-state: paused;
@@ -94,6 +137,14 @@ h1, h2, h3, h4 {
   animation: floatY 6s ease-in-out infinite;
 }
 
+/* Faint engineering grid behind product mockups */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -102,4 +153,6 @@ h1, h2, h3, h4 {
     scroll-behavior: auto !important;
   }
   .reveal { opacity: 1; transform: none; }
+  .msg-in { animation: none; opacity: 1; transform: none; }
+  .scan-line, .flow-path, .marquee-track, .float-y, .live-dot { animation: none !important; }
 }

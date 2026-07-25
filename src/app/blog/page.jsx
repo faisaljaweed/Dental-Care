@@ -6,9 +6,10 @@ import CTABanner from "@/components/layout/CTABanner";
 import { posts } from "@/lib/data/blog";
 
 export const metadata = {
-  title: "Blog",
+  title: "Blog — Dental AI, Automation & Front-Office Operations",
   description:
-    "Operational insights for dental businesses: missed calls, no-shows, RCM automation, DSO centralization, and where AI actually pays off.",
+    "Practical writing on dental automation: missed calls, no-shows, insurance denials and what to ask an AI receptionist vendor before you sign. No hype, just the operational numbers.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogPage() {
@@ -18,11 +19,11 @@ export default function BlogPage() {
         crumb="Blog"
         title={
           <>
-            Insights from inside{" "}
-            <span className="text-gradient">dental operations.</span>
+            The numbers behind{" "}
+            <span className="text-gradient">a busy front desk.</span>
           </>
         }
-        lede="No AI hype, no fluff — the operational numbers and playbooks we use with clients, published for anyone running a dental business."
+        lede="No AI hype and no vendor talk — the operational data and playbooks we use with clients, written for anyone running a dental practice."
       />
 
       <section className="py-20 lg:py-24 bg-ice">
@@ -38,8 +39,8 @@ export default function BlogPage() {
       </section>
 
       <CTABanner
-        title="Prefer answers specific to your practice?"
-        sub="The free audit applies everything in these articles to your actual call data, schedule, and patient base."
+        title="Want these numbers for your own practice?"
+        sub="On a 20-minute demo we run your real call data and schedule through both products, and show you what the gap is worth."
       />
     </>
   );

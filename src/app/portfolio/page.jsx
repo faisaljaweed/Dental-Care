@@ -6,23 +6,24 @@ import CTABanner from "@/components/layout/CTABanner";
 import { caseStudies } from "@/lib/data/portfolio";
 
 export const metadata = {
-  title: "Portfolio",
+  title: "Case Studies — AI Dental Software & Sophia in Practice",
   description:
-    "Case studies across dental clinics, multi-location groups, DSOs, orthodontics, cosmetic dentistry, and dental labs — real industry pain points, measured outcomes.",
+    "Six dental practices, from single locations to a 24-office DSO, running Redix AI dental software and Sophia. Each case study shows the problem, the rollout and the measured result.",
+  alternates: { canonical: "/portfolio" },
 };
 
 export default function PortfolioPage() {
   return (
     <>
       <PageHero
-        crumb="Portfolio"
+        crumb="Case Studies"
         title={
           <>
-            Work that starts with a pain point and{" "}
-            <span className="text-gradient">ends with a number.</span>
+            Two products, six practices,{" "}
+            <span className="text-gradient">measured results.</span>
           </>
         }
-        lede="Six engagements across every dental segment we serve. Each one follows the same arc: a documented industry leak, the system we built to close it, and the results it moved."
+        lede="From a two-chair practice in Austin to a 24-location DSO. Each one follows the same arc: what was leaking, what we deployed, and the numbers it moved."
       />
 
       <section className="py-20 lg:py-24 bg-ice">
@@ -38,8 +39,8 @@ export default function PortfolioPage() {
       </section>
 
       <CTABanner
-        title="Your practice could be the next case study."
-        sub="Every engagement here started with the same free audit. We map the leak, size the opportunity, and show you the plan — no commitment required."
+        title="Your practice could be the next one."
+        sub="Every deployment here started with a 20-minute demo on the practice's own numbers. No commitment, and you keep the analysis either way."
       />
     </>
   );

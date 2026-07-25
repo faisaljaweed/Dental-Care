@@ -2,16 +2,20 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, Linkedin, Instagram, Facebook, ArrowRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { Logo } from "@/components/layout/Navbar";
-import { services } from "@/lib/data/services";
+import { products } from "@/lib/data/products";
 import { SITE } from "@/lib/site";
 
 const companyLinks = [
   { label: "About Us", href: "/about" },
-  { label: "Portfolio", href: "/portfolio" },
+  { label: "Case Studies", href: "/portfolio" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
+  { label: "Book a Demo", href: "/demo" },
+];
+
+const legalLinks = [
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Service", href: "/terms" },
+  { label: "BAA & HIPAA", href: "/baa" },
 ];
 
 const socials = [
@@ -29,9 +33,9 @@ export default function Footer() {
           <div>
             <Logo light />
             <p className="text-white/60 text-[15px] leading-relaxed mt-5 mb-7 max-w-sm">
-              The AI &amp; automation agency built exclusively for dental businesses.
-              We answer every call, fill every chair, and recover the revenue your
-              practice already earns.
+              Two products for dental practices: software that runs the back
+              office around the clock, and Sophia, the AI receptionist trained
+              on your practice. Every call answered, every chair filled.
             </p>
             <div className="flex items-center gap-3">
               {socials.map(({ Icon, href, label }) => (
@@ -49,26 +53,26 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services */}
+          {/* Platform */}
           <div>
-            <h3 className="font-display font-semibold text-base mb-5">Services</h3>
-            <ul className="space-y-2.5">
-              {services.slice(0, 6).map((s) => (
-                <li key={s.slug}>
+            <h3 className="font-display font-semibold text-base mb-5">Platform</h3>
+            <ul className="space-y-3">
+              {products.map((p) => (
+                <li key={p.slug}>
                   <Link
-                    href={`/services/${s.slug}`}
+                    href={`/platform/${p.slug}`}
                     className="text-white/55 hover:text-teal-light text-sm transition-colors"
                   >
-                    {s.name}
+                    {p.fullName ?? p.name}
                   </Link>
                 </li>
               ))}
               <li>
                 <Link
-                  href="/services"
+                  href="/platform"
                   className="inline-flex items-center gap-1.5 text-teal-light text-sm font-semibold"
                 >
-                  All services <ArrowRight size={13} />
+                  Compare both <ArrowRight size={13} />
                 </Link>
               </li>
             </ul>
@@ -80,10 +84,17 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {companyLinks.map((l) => (
                 <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="text-white/55 hover:text-teal-light text-sm transition-colors"
-                  >
+                  <Link href={l.href} className="text-white/55 hover:text-teal-light text-sm transition-colors">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <h3 className="font-display font-semibold text-base mt-7 mb-4">Legal</h3>
+            <ul className="space-y-2.5">
+              {legalLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-white/55 hover:text-teal-light text-sm transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -120,7 +131,7 @@ export default function Footer() {
             © {new Date().getFullYear()} {SITE.name}. All rights reserved.
           </span>
           <span className="text-white/40 text-sm">
-            HIPAA-conscious builds · BAA available for every engagement
+            HIPAA-conscious by design · BAA signed before onboarding
           </span>
         </div>
       </Container>

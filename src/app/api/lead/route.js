@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 
-// Lead intake endpoint. The UI promises a one-business-hour reply —
+// Demo-request intake. The UI promises a reply within one business hour —
 // this route must be wired to a real destination before launch.
 // TODO before launch: forward to CRM / email (e.g. Resend, HubSpot, or a
-// simple notification webhook). Logging alone is NOT a launch-ready inbox.
+// notification webhook). Logging alone is NOT a launch-ready inbox.
 export async function POST(request) {
   let body;
   try {
@@ -15,18 +15,22 @@ export async function POST(request) {
   const clean = (v) => (v || "").toString().trim().slice(0, 500);
   const lead = {
     name: clean(body?.name),
-    business: clean(body?.business),
+    practice: clean(body?.practice),
     contact: clean(body?.contact),
+    locations: clean(body?.locations),
     interest: clean(body?.interest),
     message: clean(body?.message),
     at: new Date().toISOString(),
   };
 
   if (!lead.name || !lead.contact) {
-    return NextResponse.json({ error: "Name and contact are required" }, { status: 400 });
+    return NextResponse.json(
+      { error: "Name and contact are required" },
+      { status: 400 }
+    );
   }
 
-  console.log("[lead]", lead);
+  console.log("[demo-request]", lead);
 
   return NextResponse.json({ ok: true });
 }

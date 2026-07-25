@@ -1,70 +1,70 @@
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
-import { Stethoscope, Building2, Network, Smile, Sparkles, FlaskConical } from "lucide-react";
+import { Stethoscope, Building2, Network, Smile, Sparkles, Baby } from "lucide-react";
 
-const industries = [
+const audiences = [
   {
     icon: Stethoscope,
-    name: "Dental Clinics",
-    text: "Solo and small practices where every missed call is felt — AI reception, booking, and reminders without adding headcount.",
+    name: "Private Practices",
+    text: "One or two chairs, no room for another salary. Sophia covers the phones and the software works the recall list overnight.",
   },
   {
     icon: Building2,
     name: "Multi-Location Practices",
-    text: "One standard for phones, follow-up, and reporting across every office — with the visibility owners currently don't have.",
+    text: "The same answers, the same reminders and the same booking rules at every office — plus the reporting owners currently don't get.",
   },
   {
     icon: Network,
     name: "DSOs & Dental Groups",
-    text: "Centralized patient access on AI rails, per-location benchmarking, and rollouts designed around change management.",
+    text: "Centralised patient access across a mixed PMS estate, per-location benchmarking, and rollouts that survive front-desk turnover.",
   },
   {
     icon: Smile,
-    name: "Orthodontic Clinics",
-    text: "Sub-60-second speed-to-lead, consult show-rate systems, and no-start recovery for high-value case funnels.",
+    name: "Orthodontists",
+    text: "Consults booked within seconds of an enquiry, and follow-up that keeps running until the patient starts treatment or says no.",
   },
   {
     icon: Sparkles,
-    name: "Cosmetic Dentistry",
-    text: "Luxury-toned lead nurture, financing pre-screens, and database reactivation for $5K–$50K elective cases.",
+    name: "Cosmetic Dentists",
+    text: "Sophia quotes your approved ranges, screens for financing, and books the case consultation while the patient is still interested.",
   },
   {
-    icon: FlaskConical,
-    name: "Dental Labs",
-    text: "Client portals that kill status calls, AI prescription intake that prevents remakes, and workflow automation for the floor.",
+    icon: Baby,
+    name: "Pediatric Practices",
+    text: "Parents book at 10 PM after bedtime. Reminders go to whoever actually brings the child, and reschedules take one reply.",
   },
 ];
 
 export default function Industries() {
   return (
-    <section className="py-20 lg:py-28 bg-mint/50">
+    <section className="py-20 lg:py-28 bg-ice">
       <Container>
         <SectionHeading
           align="center"
-          kicker="Who We Serve"
+          kicker="Who we build for"
           title={
             <>
-              Every corner of the dental industry.{" "}
-              <span className="text-gradient">Nothing else.</span>
+              Dentistry only.{" "}
+              <span className="text-gradient">No other industries.</span>
             </>
           }
-          lede="Specialization is the point: the same six segments, every day, means we've already seen your workflow — and the leak hiding in it."
+          lede="The same six kinds of practice, every day. It's why Sophia already understands what a limited exam is, and why our call flows don't need explaining to your team."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {industries.map((ind, i) => {
-            const Icon = ind.icon;
+          {audiences.map((a, i) => {
+            const Icon = a.icon;
             return (
-              <Reveal key={ind.name} delay={(i % 3) * 90}>
+              <Reveal key={a.name} delay={(i % 3) * 90}>
                 <div className="group rounded-2xl bg-white border border-line p-8 h-full shadow-soft hover:shadow-lift hover:-translate-y-1 transition-all duration-300 ease-swift">
                   <div className="flex items-center gap-4 mb-4">
                     <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-mint text-teal group-hover:bg-brand-gradient group-hover:text-white transition-all duration-300 shrink-0">
                       <Icon size={21} strokeWidth={1.8} />
                     </span>
-                    <h3 className="font-display font-semibold text-lg text-ink">{ind.name}</h3>
+                    <h3 className="font-display font-semibold text-lg text-ink">{a.name}</h3>
                   </div>
-                  <p className="text-[14.5px] text-muted leading-relaxed">{ind.text}</p>
+                  <p className="text-[14.5px] text-muted leading-relaxed">{a.text}</p>
                 </div>
               </Reveal>
             );

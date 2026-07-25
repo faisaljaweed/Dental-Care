@@ -1,5 +1,14 @@
 import Link from "next/link";
-import { ArrowRight, Target, Eye, HeartHandshake, Gauge, ShieldCheck, Users } from "lucide-react";
+import Image from "next/image";
+import {
+  ArrowRight,
+  Target,
+  Eye,
+  HeartHandshake,
+  Gauge,
+  ShieldCheck,
+  Focus,
+} from "lucide-react";
 import PageHero from "@/components/shared/PageHero";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -9,62 +18,67 @@ import StatCounter from "@/components/ui/StatCounter";
 import CTABanner from "@/components/layout/CTABanner";
 
 export const metadata = {
-  title: "About Us",
+  title: "About Us — The AI Automation Partner for Dental Practices",
   description:
-    "Redix Dental is the AI & automation agency built exclusively for dental businesses — clinics, groups, DSOs, ortho, cosmetic, and labs.",
+    "Redix Dental builds two products for dental practices: AI dental software and Sophia, the AI receptionist. One industry, two products, and results reported in appointments and dollars.",
+  alternates: { canonical: "/about" },
 };
 
 const values = [
   {
+    icon: Focus,
+    title: "Two products, not twenty",
+    text: "We turn down work outside our two products. Every hour we don't spend on a website build is an hour Sophia gets better at answering an insurance question.",
+  },
+  {
     icon: Gauge,
-    title: "Outcomes Over Features",
-    text: "We don't sell dashboards; we sell recovered revenue and returned hours. Every system we ship reports the number it moved.",
+    title: "Outcomes over features",
+    text: "We don't sell dashboards. Every month you get the appointments booked and the production attached to them, next to what you paid us.",
   },
   {
     icon: ShieldCheck,
-    title: "Honest by Default",
-    text: "If automation won't pay for itself in your practice, we'll say so in the audit. Overpromising is how this industry got so skeptical.",
+    title: "Honest before the sale",
+    text: "If your phones are already answered and your recall list is worked, we'll say so on the demo. Overpromising is how this category got its reputation.",
   },
   {
     icon: HeartHandshake,
-    title: "Staff-First Rollouts",
-    text: "AI that absorbs overflow, never replaces people. When the front desk wins, the rollout succeeds — we design for that on purpose.",
-  },
-  {
-    icon: Users,
-    title: "Dental-Only Focus",
-    text: "Same six segments, every day. We already speak PMS, recall, production, and RCM — you never have to translate your business for us.",
+    title: "Staff-first rollouts",
+    text: "AI absorbs the overflow — the fourth call ringing at once, the 10 PM message. When the front desk wins, the rollout sticks. We design for that deliberately.",
   },
 ];
 
-/* Placeholder team — client will replace with real people & photos. */
+/* Placeholder team — client will replace with real people and photos. */
 const team = [
   {
     name: "Founder & CEO",
-    role: "Strategy & Client Partnerships",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80",
+    role: "Strategy & practice partnerships",
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80",
   },
   {
     name: "Head of AI Engineering",
-    role: "Voice AI & Integrations",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
+    role: "Voice, conversation & PMS integrations",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
   },
   {
     name: "Dental Operations Lead",
-    role: "Ex-practice manager, workflow design",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=80",
+    role: "Ex-practice manager · trains Sophia",
+    image:
+      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=80",
   },
   {
     name: "Head of Delivery",
-    role: "Implementation & Support",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&q=80",
+    role: "Onboarding, rollout & support",
+    image:
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&q=80",
   },
 ];
 
 const stats = [
-  { value: 9, suffix: "", label: "dental-specific AI services" },
-  { value: 6, suffix: "", label: "dental segments served" },
-  { value: 48, suffix: " hrs", label: "typical deployment time" },
+  { value: 2, suffix: "", label: "products — and nothing else" },
+  { value: 6, suffix: "", label: "kinds of dental practice served" },
+  { value: 48, suffix: " hrs", label: "typical time to go live" },
   { value: 100, suffix: "%", label: "dental — no other industries" },
 ];
 
@@ -75,11 +89,11 @@ export default function AboutPage() {
         crumb="About Us"
         title={
           <>
-            We exist because dental businesses lose money{" "}
-            <span className="text-gradient">they already earned.</span>
+            We build two things{" "}
+            <span className="text-gradient">extremely well.</span>
           </>
         }
-        lede="Redix Dental is an AI & automation agency with one industry, one obsession, and one measure of success: the revenue our systems recover for dental businesses."
+        lede="Redix Dental is an AI company with one industry, two products, and one measure of success: whether your schedule is fuller than it was before we arrived."
       />
 
       {/* Story */}
@@ -88,12 +102,13 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             <Reveal>
               <div className="relative">
-                <div className="rounded-[2rem] overflow-hidden shadow-lift">
-                  <img
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80"
-                    alt="The Redix Dental team at work"
-                    className="w-full aspect-[4/3] object-cover"
-                    loading="lazy"
+                <div className="relative rounded-[2rem] overflow-hidden shadow-lift aspect-[4/3]">
+                  <Image
+                    src="/Images/About.jpeg"
+                    alt="The Redix Dental team working with a dental practice"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
                   />
                 </div>
                 <div
@@ -102,37 +117,39 @@ export default function AboutPage() {
                 />
               </div>
             </Reveal>
+
             <Reveal delay={120}>
               <SectionHeading
-                kicker="Our Story"
+                kicker="Our story"
                 title={
                   <>
-                    Born from a simple observation at a{" "}
-                    <span className="text-gradient">front desk.</span>
+                    It started with a phone{" "}
+                    <span className="text-gradient">nobody could reach.</span>
                   </>
                 }
                 className="mb-6"
               />
               <div className="space-y-5 text-[16px] text-muted leading-relaxed">
                 <p>
-                  Every dental practice has two front doors. One is on the street.
-                  The other is the phone — and for a third of the day&apos;s calls,
-                  nobody is holding it open. The patient with the broken crown who
-                  called at 7:40 PM didn&apos;t leave a voicemail; she called the next
-                  practice on the list.
+                  Every practice has two front doors. One is on the street. The
+                  other is the phone — and for roughly a third of the day&apos;s
+                  calls, nobody is holding it open. The patient with the broken
+                  crown who called at 7:40 PM didn&apos;t leave a voicemail. She
+                  called the next practice on the list.
                 </p>
                 <p>
-                  We watched brilliant clinical teams lose six figures a year to
-                  missed calls, no-shows, silent recall lists, and denied claims —
-                  not because anyone was failing, but because front desks are doing
-                  five jobs at once and hiring a sixth person stopped being possible
-                  years ago.
+                  We started out building whatever dental clients asked for:
+                  websites, portals, integrations, dashboards. The work was
+                  fine. But the same two problems came up in every single
+                  conversation — the phones nobody could answer, and the
+                  questions patients asked at hours nobody worked.
                 </p>
                 <p>
-                  So we built the agency we couldn&apos;t find: engineers and
-                  ex-practice operators who build AI systems for dentistry only —
-                  and report their results in dollars, next to the invoice, every
-                  month.
+                  So we stopped taking the other work. We put everything into
+                  two products: software that runs the back office around the
+                  clock, and Sophia, who talks to patients when there&apos;s
+                  nobody at the desk. That focus is the whole company now, and
+                  it&apos;s the reason both products are good.
                 </p>
               </div>
             </Reveal>
@@ -146,14 +163,16 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Reveal>
               <div className="rounded-2xl bg-white border border-line shadow-soft p-10 h-full">
-                <span className="flex items-center justify-center w-13 h-13 w-[52px] h-[52px] rounded-2xl bg-brand-gradient text-white mb-6 shadow-glow">
+                <span className="flex items-center justify-center w-[52px] h-[52px] rounded-2xl bg-brand-gradient text-white mb-6 shadow-glow">
                   <Target size={22} />
                 </span>
-                <h2 className="font-display font-semibold text-2xl text-ink mb-4">Our Mission</h2>
+                <h2 className="font-display font-semibold text-2xl text-ink mb-4">
+                  Our mission
+                </h2>
                 <p className="text-muted leading-relaxed">
-                  Make sure no dental business ever loses money it already earned —
-                  by automating every leak between a patient&apos;s intent and a
-                  filled chair.
+                  Make sure no dental practice loses a patient because the phone
+                  rang at the wrong moment — or because a question went
+                  unanswered until Monday.
                 </p>
               </div>
             </Reveal>
@@ -162,11 +181,13 @@ export default function AboutPage() {
                 <span className="flex items-center justify-center w-[52px] h-[52px] rounded-2xl bg-brand-gradient text-white mb-6 shadow-glow">
                   <Eye size={22} />
                 </span>
-                <h2 className="font-display font-semibold text-2xl text-ink mb-4">Our Vision</h2>
+                <h2 className="font-display font-semibold text-2xl text-ink mb-4">
+                  Our vision
+                </h2>
                 <p className="text-muted leading-relaxed">
-                  A dental industry where every call is answered, every chair is
-                  full, and front-desk teams do human work — not phone work — from
-                  the solo clinic to the 200-location DSO.
+                  A dental industry where front desks do human work instead of
+                  phone work — from the single-chair practice to the
+                  200-location group.
                 </p>
               </div>
             </Reveal>
@@ -179,7 +200,7 @@ export default function AboutPage() {
         <Container>
           <SectionHeading
             align="center"
-            kicker="Our Values"
+            kicker="How we work"
             title={
               <>
                 The rules we don&apos;t break{" "}
@@ -196,8 +217,12 @@ export default function AboutPage() {
                     <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-mint text-teal mb-5">
                       <Icon size={21} />
                     </span>
-                    <h3 className="font-display font-semibold text-lg text-ink mb-3">{v.title}</h3>
-                    <p className="text-[14px] text-muted leading-relaxed">{v.text}</p>
+                    <h3 className="font-display font-semibold text-lg text-ink mb-3">
+                      {v.title}
+                    </h3>
+                    <p className="text-[14px] text-muted leading-relaxed">
+                      {v.text}
+                    </p>
                   </div>
                 </Reveal>
               );
@@ -231,14 +256,14 @@ export default function AboutPage() {
         <Container>
           <SectionHeading
             align="center"
-            kicker="The Team"
+            kicker="The team"
             title={
               <>
                 Engineers who learned dentistry.{" "}
                 <span className="text-gradient">Operators who learned AI.</span>
               </>
             }
-            lede="A deliberately mixed team: AI engineering on one side, real dental front-office experience on the other. That's why our systems fit the workflow instead of fighting it."
+            lede="A deliberately mixed team: AI engineering on one side, real dental front-office experience on the other. It's why Sophia knows what a limited exam is without being told."
           />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((m, i) => (
@@ -247,13 +272,15 @@ export default function AboutPage() {
                   <div className="overflow-hidden aspect-[4/5]">
                     <img
                       src={m.image}
-                      alt={m.name}
+                      alt={`Redix Dental — ${m.name}`}
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-5">
-                    <h3 className="font-display font-semibold text-[15px] text-ink">{m.name}</h3>
+                    <h3 className="font-display font-semibold text-[15px] text-ink">
+                      {m.name}
+                    </h3>
                     <p className="text-[13px] text-muted mt-1">{m.role}</p>
                   </div>
                 </div>
@@ -262,8 +289,13 @@ export default function AboutPage() {
           </div>
           <Reveal delay={150}>
             <div className="text-center mt-12">
-              <Button as={Link} href="/contact" size="lg" rightIcon={<ArrowRight size={16} />}>
-                Work With Us
+              <Button
+                as={Link}
+                href="/demo"
+                size="lg"
+                rightIcon={<ArrowRight size={16} />}
+              >
+                Book a Demo
               </Button>
             </div>
           </Reveal>

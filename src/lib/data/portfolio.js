@@ -1,35 +1,37 @@
 /**
- * DUMMY PORTFOLIO — placeholder case studies for preview & layout.
+ * PLACEHOLDER CASE STUDIES — for preview and layout.
  * The client will replace these with real engagements before outreach.
- * Structure per case study: problem → approach → solution → results.
+ *
+ * Every study maps to one or both products. `products` holds product slugs so
+ * detail pages can link back into /platform without a second source of truth.
+ * Structure per study: problem → approach → solution → results.
  */
 export const caseStudies = [
   {
     slug: "brightway-dental-missed-calls",
     client: "Brightway Family Dental",
-    segment: "Solo Practice",
+    segment: "Private Practice",
     location: "Austin, TX",
-    tag: "AI Voice Receptionist",
-    services: ["ai-voice-receptionist", "missed-call-recovery"],
-    image:
-      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1600&q=80",
-    headline: "From 38% missed calls to a phone that never rings out",
+    tag: "AI Dental Software",
+    products: ["ai-dental-software"],
+    image: "/Images/Real_Dental_01.jpeg",
+    headline: "From 38% of calls missed to a phone that never rings out",
     summary:
-      "A busy two-chair practice was missing more than a third of its inbound calls. We put an AI receptionist on their lines and recovered the patients they were already paying to attract.",
+      "A two-chair practice was missing more than a third of its calls. The software went on their existing lines and started booking the patients they were already paying to attract.",
     problem:
-      "Brightway's two front-desk coordinators were doing five jobs at once. Call tracking showed 38% of inbound calls went unanswered during business hours — and the phones went completely dark after 5 PM, exactly when most patients try to book. New-patient ad spend was effectively subsidizing the next practice down the road.",
+      "Brightway's two coordinators were doing five jobs at once. Call tracking showed 38% of inbound calls went unanswered during opening hours, and the phones went dark after 5 PM — exactly when most patients try to book. Their new-patient ad spend was effectively subsidising the practice down the road.",
     approach:
-      "We started with a two-week call audit to quantify the leak: volumes by hour, abandonment points, and the revenue attached to each missed new-patient call. Then we deployed a dental-trained AI voice agent on their existing numbers, integrated with their PMS, with escalation rules the owner approved line by line.",
+      "We started with a two-week call audit to size the leak: volume by hour, where callers abandoned, and the revenue attached to each missed new-patient call. Then we put the software on their existing numbers, connected it to Open Dental, and wrote escalation rules the owner approved line by line.",
     solution:
-      "The AI now answers every call within two rings — including nights, weekends, and the Monday-morning storm. It books directly into open slots, answers insurance and pricing questions from an approved script, texts back any caller who hangs up early, and routes emergency language straight to the on-call line.",
+      "Every call is now answered within two seconds — including nights, weekends and the Monday morning surge. It books into open slots, answers insurance and pricing questions from approved material, texts back anyone who hangs up early, and routes emergency language straight to the on-call line.",
     results: [
-      { metric: "98%", label: "call answer rate, up from 62%" },
+      { metric: "98%", label: "of calls answered, up from 62%" },
       { metric: "41", label: "new patients booked after hours in 90 days" },
       { metric: "$62K", label: "attributed production in the first quarter" },
       { metric: "0", label: "front-desk hires needed" },
     ],
     quote:
-      "The first Monday it was live, my front desk actually got to greet the patients standing in front of them. That alone was worth it — the after-hours bookings are just the bonus.",
+      "The first Monday it was live, my front desk actually got to greet the patients standing in front of them. The after-hours bookings were the bonus.",
     quoteBy: "Practice Owner, Brightway Family Dental",
     duration: "Live in 48 hours · 90-day results shown",
   },
@@ -38,145 +40,146 @@ export const caseStudies = [
     client: "Lakeshore Dental Group",
     segment: "Multi-Location Practice",
     location: "Chicago, IL — 5 locations",
-    tag: "No-Show Prevention",
-    services: ["no-show-prevention", "smart-scheduling"],
-    image:
-      "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=1600&q=80",
+    tag: "AI Dental Software",
+    products: ["ai-dental-software"],
+    image: "/Images/Real_Dental_02.jpeg",
     headline: "Cutting a 19% no-show rate to 7% across five offices",
     summary:
-      "Five locations, five different confirmation habits, and a no-show rate quietly draining six figures a year. We standardized reminders and automated waitlist backfill group-wide.",
+      "Five locations, five different confirmation habits, and a no-show rate quietly draining six figures a year. Reminders and waitlist backfill were standardised group-wide.",
     problem:
-      "Each Lakeshore office ran its own confirmation routine — some called, some texted, one relied on a printed list. Group no-show rate averaged 19%, with the worst office at 26%. Cancelled slots stayed empty because backfilling from the waitlist required a coordinator to drop everything and start dialing.",
+      "Each Lakeshore office ran its own confirmation routine — some called, some texted, one worked from a printed list. The group no-show rate averaged 19%, with the worst office at 26%. Cancelled slots stayed empty because backfilling meant a coordinator dropping everything to start dialling.",
     approach:
-      "We analyzed 18 months of appointment data to find no-show patterns by office, provider, appointment type, and patient history — then designed one standardized, behavior-based reminder system with per-location routing, and an automated waitlist engine to catch what reminders couldn't.",
+      "We analysed 18 months of appointment data to find no-show patterns by office, provider, appointment type and patient history. That produced one standardised reminder system with per-location routing, plus an automated waitlist engine for what reminders couldn't catch.",
     solution:
-      "Every appointment now gets a sequence tuned to its risk profile: more touches for historically unreliable slots, two-way confirmations that turn a 'can't make it' into an instant reschedule, and a waitlist engine that offers freshly opened slots to matching patients within minutes — no coordinator required.",
+      "Every appointment now gets a sequence tuned to its risk: more touches for historically unreliable slots, two-way confirmations that turn a 'can't make it' into an instant reschedule, and a waitlist engine that offers freshly opened slots to matching patients within minutes.",
     results: [
       { metric: "19% → 7%", label: "group no-show rate in 4 months" },
-      { metric: "63%", label: "of late cancellations backfilled automatically" },
+      {
+        metric: "63%",
+        label: "of late cancellations backfilled automatically",
+      },
       { metric: "$28K/mo", label: "estimated recovered production group-wide" },
       { metric: "5/5", label: "offices on one standard playbook" },
     ],
     quote:
-      "We'd tried reminder apps before. The difference here was the waitlist backfill — an empty 2 PM slot filling itself while the coordinator is with a patient still feels like a magic trick.",
+      "We'd tried reminder apps before. The difference was the backfill — an empty 2 PM slot filling itself while the coordinator is with a patient still feels like a trick.",
     quoteBy: "Regional Operations Manager, Lakeshore Dental Group",
     duration: "6-week rollout · 4-month results shown",
   },
   {
-    slug: "summitcare-dso-command-center",
+    slug: "summitcare-dso-standardisation",
     client: "SummitCare Dental Partners",
     segment: "DSO",
     location: "Southeast US — 24 locations",
-    tag: "DSO Command Center",
-    services: ["dso-command-center", "ai-voice-receptionist"],
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80",
-    headline: "One patient-access playbook across 24 acquired practices",
+    tag: "Both products",
+    products: ["ai-dental-software", "sophia-ai-receptionist"],
+    image: "/Images/Real_Dental_03.jpeg",
+    headline: "One patient-access standard across 24 acquired practices",
     summary:
-      "A growing DSO couldn't see — let alone standardize — how 24 acquired offices handled phones and follow-up. We built their command center and put patient access on AI rails.",
+      "A growing DSO couldn't see — let alone standardise — how 24 offices handled phones and follow-up. Both products went in, office by office, over five months.",
     problem:
-      "SummitCare had grown by acquisition: 24 locations, three different PMS platforms, and front-desk turnover near 35% a year. Leadership had no daily visibility into answer rates or booking conversion, and every attempt to standardize by memo had died in the field. Month-end reports arrived too late to act on.",
+      "SummitCare had grown by acquisition: 24 locations, three different PMS platforms, and front-desk turnover near 35% a year. Leadership had no daily visibility into answer rates or booking conversion, and every attempt to standardise by memo died in the field. Month-end reports arrived too late to act on.",
     approach:
-      "Technology was the easy half. We phased the rollout in waves of four locations, with office managers involved in script design from day one — because DSO rollouts fail on change management, not software. AI call handling went in first as overflow support, never as a staff replacement, which turned front desks from resisters into requesters.",
+      "Technology was the easy half. We phased the rollout in waves of four locations with office managers involved in writing the answers from day one — DSO rollouts fail on change management, not software. The software went in first as overflow support, never as a staff replacement, which turned front desks from resisters into requesters.",
     solution:
-      "A group-wide command center now benchmarks every office daily on answer rate, booking conversion, no-shows, and recovered revenue — normalized across all three PMS platforms. Standardized AI workflows handle overflow calls, after-hours coverage, reminders, and recall outreach at every location, with local customization where clinical workflows genuinely differ.",
+      "Answer rates, booking conversion, no-shows and recovered production are now benchmarked daily across all 24 offices, normalised across three PMS platforms. Sophia handles website and Google Business enquiries with group-standard answers, while local fee and provider details stay specific to each office.",
     results: [
       { metric: "24", label: "locations on one dashboard, daily" },
       { metric: "91%", label: "group answer rate, up from an estimated 64%" },
-      { metric: "11 pts", label: "spread between best and worst office — down from 31" },
+      {
+        metric: "11 pts",
+        label: "spread between best and worst office, down from 31",
+      },
       { metric: "3 PMS", label: "platforms unified in one reporting layer" },
     ],
     quote:
-      "For the first time since we started acquiring, Monday's leadership call runs on last week's numbers instead of last month's. And the offices asked us to expand the AI coverage — that never happens with rollouts.",
+      "Monday's leadership call finally runs on last week's numbers instead of last month's. And the offices asked us to expand the coverage — that never happens with rollouts.",
     quoteBy: "VP of Operations, SummitCare Dental Partners",
-    duration: "24 locations in 4 phased waves over 5 months",
+    duration: "24 locations in 4 waves over 5 months",
   },
   {
-    slug: "align-orthodontics-speed-to-lead",
+    slug: "align-orthodontics-consult-bookings",
     client: "Align & Co. Orthodontics",
-    segment: "Orthodontic Clinic",
+    segment: "Orthodontics",
     location: "Phoenix, AZ",
-    tag: "Speed-to-Lead",
-    services: ["speed-to-lead"],
-    image:
-      "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1600&q=80",
-    headline: "Sub-60-second lead response doubled consult show rates",
+    tag: "Sophia",
+    products: ["sophia-ai-receptionist"],
+    image: "/Images/Real_Dental_04.jpeg",
+    headline: "Doubling consult show rates by answering in seconds, not hours",
     summary:
-      "An ortho practice was spending heavily on ads and losing leads to slow follow-up. We wired every channel to an AI engagement layer that responds in under a minute and nurtures to treatment start.",
+      "An ortho practice was spending heavily on ads and losing enquiries to slow follow-up. Sophia took over the first reply on every channel and booked the consult in the same conversation.",
     problem:
-      "Align & Co. was generating 120+ leads a month from Instagram and Google at roughly $180 each — then calling them back whenever the treatment coordinator got free, often hours later. Barely half of booked consults showed, and nobody tracked which no-showed leads ever came back. Six figures of annual ad spend was leaking at every stage of the funnel.",
+      "Align & Co. generated 120+ enquiries a month from Instagram and Google at roughly $180 each — then replied whenever the treatment coordinator got free, often hours later. Barely half of booked consults showed up, and nobody tracked which lapsed enquiries ever came back.",
     approach:
-      "We mapped the full funnel from ad click to treatment start and instrumented every stage. Then we connected all lead sources — forms, DMs, missed calls — to one AI engagement layer with a single rule: no inquiry waits more than 60 seconds, ever.",
+      "We mapped the funnel from ad click to treatment start and instrumented every stage. Then we trained Sophia on their treatment options, fee ranges and financing terms, and connected her to every channel enquiries actually arrive on — forms, DMs and SMS.",
     solution:
-      "Every lead now gets an instant, personalized two-way conversation that qualifies interest, pre-screens financing questions, and books the consult on the spot. Show-rate sequences run automatically before every consult, and post-consult nurture continues until the patient starts treatment or clearly opts out — with every case tracked back to its ad source.",
+      "Every enquiry now gets an answer in seconds, on the channel it came in on. Sophia handles the pricing and financing questions that used to require a callback, books the consult against live availability, and hands warm conversations to the treatment coordinator with the full thread attached.",
     results: [
-      { metric: "< 60 sec", label: "response time on every lead, every channel" },
+      { metric: "< 5 sec", label: "first reply on every channel" },
       { metric: "52% → 81%", label: "consult show rate" },
       { metric: "2.3×", label: "treatment starts from the same ad budget" },
       { metric: "$0", label: "added ad spend to get there" },
     ],
     quote:
-      "We didn't need more leads — we needed to stop wasting the ones we had. Same budget, more starts. The ROI conversation with my CPA got very short.",
+      "We didn't need more leads — we needed to stop wasting the ones we had. Same budget, more starts. The conversation with my accountant got very short.",
     quoteBy: "Owner-Orthodontist, Align & Co. Orthodontics",
     duration: "3-week implementation · 6-month results shown",
   },
   {
     slug: "lumiere-cosmetic-reactivation",
     client: "Lumière Cosmetic Dentistry",
-    segment: "Cosmetic Clinic",
+    segment: "Cosmetic Dentistry",
     location: "Miami, FL",
-    tag: "Patient Reactivation",
-    services: ["patient-reactivation", "missed-call-recovery"],
-    image:
-      "https://images.unsplash.com/photo-1588776813677-77aaf5595b83?w=1600&q=80",
+    tag: "Both products",
+    products: ["ai-dental-software", "sophia-ai-receptionist"],
+    image: "/Images/Real_Dental_05.jpeg",
     headline: "Waking a 4,800-patient database worth six figures",
     summary:
-      "A high-end cosmetic studio had years of consults and past patients sitting silent in its database. Systematic AI reactivation turned the list they already owned into booked production.",
+      "A high-end studio had years of consults and past patients sitting silent in its database. Systematic reactivation turned the list they already owned into booked production.",
     problem:
-      "Lumière's database held 4,800 past patients and consulted-but-never-started prospects — whitening patients who never returned, veneer consults who 'wanted to think about it,' and treatment plans presented but never scheduled. With average case values from $2,500 to $30,000, the dormant list was worth more than a year of new-patient marketing — and nobody had time to work it.",
+      "Lumière's database held 4,800 past patients and consulted-but-never-started prospects — whitening patients who never returned, veneer consults who wanted to think about it, treatment plans presented but never scheduled. With case values from $2,500 to $30,000, the dormant list was worth more than a year of new-patient marketing, and nobody had time to work it.",
     approach:
-      "We segmented the database by treatment history, case value, and recency, then built persistent, brand-matched outreach sequences — the tone of a luxury studio, not a call center — with AI handling replies and booking, and the front desk only stepping in for warm, ready-to-book conversations.",
+      "We segmented the database by treatment history, case value and recency, then built persistent outreach in the tone of a luxury studio rather than a call centre. Sophia was trained to handle the replies — including the financing questions that stall cosmetic cases — so the front desk only stepped in for conversations that were already warm.",
     solution:
-      "Dormant segments now receive tasteful multi-touch sequences: whitening renewals, veneer consult revivals with financing options, and treatment-plan follow-ups timed to the patient's original interest. Every reply is answered in seconds, every booking lands on the schedule, and every recovered case is reported with its production value.",
+      "Dormant segments now receive multi-touch sequences timed to their original interest: whitening renewals, veneer consult revivals with financing options, and treatment-plan follow-ups. Every reply is answered in seconds, every booking lands on the schedule, and every recovered case is reported with its production value.",
     results: [
       { metric: "27%", label: "of dormant patients re-engaged in 5 months" },
       { metric: "$214K", label: "in booked production from the dormant list" },
       { metric: "38", label: "previously stalled treatment plans scheduled" },
-      { metric: "9:1", label: "return on the program's total cost" },
+      { metric: "9:1", label: "return on the programme's total cost" },
     ],
     quote:
-      "These were people who already knew us and already wanted the work. All it took was following up like we meant it — which, honestly, we never had the hands to do.",
+      "These were people who already knew us and already wanted the work. All it took was following up like we meant it — which we never had the hands to do.",
     quoteBy: "Founder, Lumière Cosmetic Dentistry",
     duration: "5-month campaign · ongoing",
   },
   {
-    slug: "crownpoint-lab-automation",
-    client: "Crownpoint Dental Lab",
-    segment: "Dental Lab",
-    location: "Denver, CO",
-    tag: "Custom AI Apps",
-    services: ["custom-ai-apps"],
-    image:
-      "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=1600&q=80",
-    headline: "Killing 'where's my case?' calls with a live client portal",
+    slug: "northside-pediatric-after-hours",
+    client: "Northside Pediatric Dentistry",
+    segment: "Pediatric Practice",
+    location: "Portland, OR",
+    tag: "Sophia",
+    products: ["sophia-ai-receptionist"],
+    image: "/Images/Real_Dental_06.jpeg",
+    headline: "Half of all bookings now happen after the children are in bed",
     summary:
-      "A 22-technician lab was losing hours daily to status calls and re-keyed prescriptions. We built a case-tracking portal and AI intake that gave dentists answers — and technicians their day back.",
+      "Parents were trying to book at 9 PM and finding a contact form. Sophia started answering them — and the schedule filled from hours nobody was working.",
     problem:
-      "Crownpoint's technicians were interrupted all day by dentist offices calling for case status, while the front office re-keyed prescriptions from faxes, emails, and photos into their lab software — an error-prone process that fed the lab's costliest problem: remakes caused by ambiguous instructions and missed details.",
+      "Northside's enquiries clustered between 8 and 11 PM, when parents finally sat down. The website offered a contact form that got answered the next afternoon, by which point many families had booked elsewhere. The front desk was also fielding the same twelve questions all day: age for a first visit, sedation options, which insurance plans, whether parents can come into the room.",
     approach:
-      "We shadowed the lab floor for a week and mapped every interruption and re-keying step to its cost. The design brief that emerged was simple: dentists should never need to call for status, and a prescription should be entered exactly once — by the dentist.",
+      "We trained Sophia on those twelve questions first, using the practice's own wording, then on their full treatment list, fee ranges and insurance panel. Anything clinical — whether a specific child needs sedation — was explicitly put out of scope and routed to a booked visit instead.",
     solution:
-      "A custom client portal now gives every dentist office live case status, due dates, and photos at every stage — with automatic notifications at the milestones that used to trigger calls. AI-assisted digital intake reads incoming prescriptions, flags missing shade and margin details before the case hits the floor, and syncs directly with the lab's management software.",
+      "Sophia now answers on the website and Google Business profile at any hour, in English or Spanish, and books new-patient visits against live availability. Reminders go to whichever parent is actually bringing the child, and a reschedule takes one reply rather than a phone call during working hours.",
     results: [
-      { metric: "− 83%", label: "reduction in inbound status calls" },
-      { metric: "− 31%", label: "remakes from incomplete prescriptions" },
-      { metric: "9 hrs/wk", label: "of front-office re-keying eliminated" },
-      { metric: "+ 14", label: "net new dentist accounts citing the portal" },
+      { metric: "51%", label: "of new-patient bookings made after 6 PM" },
+      { metric: "70%", label: "of questions resolved without the front desk" },
+      { metric: "+34", label: "new-patient visits per month" },
+      { metric: "2", label: "languages handled automatically" },
     ],
     quote:
-      "Our techs used to lose whole afternoons to the phone. Now the phone barely rings, the cases arrive complete, and our dentists tell other dentists about the portal. It became a sales tool we didn't plan for.",
-    quoteBy: "General Manager, Crownpoint Dental Lab",
-    duration: "10-week build · results at 6 months",
+      "Parents book us at ten at night because that's when they have a free hand. We were never going to staff that, and now we don't have to.",
+    quoteBy: "Practice Manager, Northside Pediatric Dentistry",
+    duration: "1-week training · 4-month results shown",
   },
 ];
 

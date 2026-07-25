@@ -6,8 +6,8 @@ import Reveal from "@/components/ui/Reveal";
 import { SITE } from "@/lib/site";
 
 export default function CTABanner({
-  title = "Ready to see where your practice is leaking revenue?",
-  sub = "Book a free AI opportunity audit — we'll map your missed calls, no-shows, and dormant patients, and show you exactly what automation would recover.",
+  title = "See it answer your phones.",
+  sub = "Book a 20-minute demo. We'll run your real scenarios — a new-patient call, an insurance question, a 10 PM booking — and show you exactly what your practice would have captured.",
 }) {
   return (
     <section className="py-20 lg:py-24">
@@ -28,11 +28,11 @@ export default function CTABanner({
                 <p className="text-white/65 text-lg leading-relaxed max-w-2xl">{sub}</p>
               </div>
               <div className="flex flex-col sm:flex-row lg:flex-col gap-4 shrink-0">
-                <Button as={Link} href="/contact" size="lg" rightIcon={<ArrowRight size={17} />}>
-                  Book a Free Audit
+                <Button as={Link} href="/demo" size="lg" rightIcon={<ArrowRight size={17} />}>
+                  Book a Demo
                 </Button>
                 <Button as="a" href={SITE.phoneHref} size="lg" variant="light" leftIcon={<Phone size={16} />}>
-                  {SITE.phoneDisplay}
+                  Talk to an AI Expert
                 </Button>
               </div>
             </div>

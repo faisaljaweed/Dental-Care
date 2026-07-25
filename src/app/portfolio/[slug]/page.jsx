@@ -1,13 +1,14 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ChevronRight, ArrowRight, Quote } from "lucide-react";
+import { ChevronRight, ArrowRight, Quote, Sparkles } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import CTABanner from "@/components/layout/CTABanner";
 import CaseStudyCard from "@/components/shared/CaseStudyCard";
 import { caseStudies, getCaseStudy } from "@/lib/data/portfolio";
-import { getService } from "@/lib/data/services";
+import { getProduct } from "@/lib/data/products";
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -38,7 +39,7 @@ export default function CaseStudyPage({ params }) {
   const study = getCaseStudy(params.slug);
   if (!study) notFound();
 
-  const usedServices = study.services.map(getService).filter(Boolean);
+  const usedProducts = study.products.map(getProduct).filter(Boolean);
   const others = caseStudies.filter((c) => c.slug !== study.slug).slice(0, 3);
 
   return (
@@ -70,8 +71,15 @@ export default function CaseStudyPage({ params }) {
       {/* Hero image overlapping */}
       <section className="bg-ice pb-0">
         <Container>
-          <div className="-mt-48 relative z-10 rounded-[1.6rem] overflow-hidden shadow-lift border border-line">
-            <img src={study.image} alt={study.client} className="w-full aspect-[21/9] object-cover" />
+          <div className="-mt-48 relative z-10 rounded-[1.6rem] overflow-hidden shadow-lift border border-line aspect-[21/9]">
+            <Image
+              src={study.image}
+              alt={`${study.client} — ${study.headline}`}
+              fill
+              sizes="(max-width: 1280px) 100vw, 1216px"
+              priority
+              className="object-cover"
+            />
           </div>
         </Container>
       </section>
@@ -115,30 +123,27 @@ export default function CaseStudyPage({ params }) {
               </div>
 
               <div className="rounded-2xl bg-white border border-line shadow-soft p-8">
-                <h3 className="font-display font-semibold text-lg text-ink mb-5">Services used</h3>
+                <h3 className="font-display font-semibold text-lg text-ink mb-5">Products used</h3>
                 <ul className="space-y-3">
-                  {usedServices.map((s) => {
-                    const Icon = s.icon;
-                    return (
-                      <li key={s.slug}>
-                        <Link
-                          href={`/services/${s.slug}`}
-                          className="flex items-center gap-3 group"
-                        >
-                          <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-mint text-teal shrink-0 group-hover:bg-brand-gradient group-hover:text-white transition-all">
-                            <Icon size={16} />
-                          </span>
-                          <span className="text-sm font-medium text-ink group-hover:text-teal transition-colors">
-                            {s.name}
-                          </span>
-                        </Link>
-                      </li>
-                    );
-                  })}
+                  {usedProducts.map((p) => (
+                    <li key={p.slug}>
+                      <Link
+                        href={`/platform/${p.slug}`}
+                        className="flex items-center gap-3 group"
+                      >
+                        <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-mint text-teal shrink-0 group-hover:bg-brand-gradient group-hover:text-white transition-all">
+                          <Sparkles size={16} />
+                        </span>
+                        <span className="text-sm font-medium text-ink group-hover:text-teal transition-colors">
+                          {p.fullName ?? p.name}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              <Button as={Link} href="/contact" size="lg" className="w-full justify-center" rightIcon={<ArrowRight size={16} />}>
+              <Button as={Link} href="/demo" size="lg" className="w-full justify-center" rightIcon={<ArrowRight size={16} />}>
                 Get Results Like These
               </Button>
             </aside>

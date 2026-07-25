@@ -8,7 +8,7 @@ import { caseStudies } from "@/lib/data/portfolio";
 import { cn } from "@/lib/utils";
 
 /* Testimonials are drawn from portfolio case studies (placeholder content —
-   client will replace with real client quotes before outreach). */
+   client will replace with real quotes before outreach). */
 const testimonials = caseStudies
   .filter((c) => c.quote)
   .map((c) => ({ quote: c.quote, by: c.quoteBy, segment: `${c.segment} · ${c.location}` }));
@@ -27,8 +27,8 @@ export default function Testimonials() {
           kicker="What Clients Say"
           title={
             <>
-              Trusted by the people who run{" "}
-              <span className="text-gradient">dental businesses.</span>
+              Practices that stopped{" "}
+              <span className="text-gradient">missing patients.</span>
             </>
           }
         />
